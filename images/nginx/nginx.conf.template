@@ -1,0 +1,12 @@
+events {}
+http {
+    server {
+        listen 80;
+        
+        location / {
+            add_header Content-Type text/plain;
+            add_header X-Pod-IP ${POD_IP};
+            return 200 "server_ip: ${POD_IP}\n";
+        }
+    }
+}
